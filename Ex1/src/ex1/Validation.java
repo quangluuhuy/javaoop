@@ -1,4 +1,4 @@
-/*
+    /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
@@ -19,6 +19,22 @@ public class Validation {
             System.out.print(mess); 
             try {
                 number = Integer.parseInt(scanner.nextLine().trim());
+                if (number >= min && number <= max) {  
+                    return number;
+                } else {  
+                    System.err.println("Number must in rage " + min + " to " + max); 
+                }
+            } catch (NumberFormatException e) {
+                System.err.println("You must enter number !enter again: "); 
+            }
+        }
+    }
+     public static float inputFloat(String mess, float min, float max) { 
+        float number;
+        while (true) {
+            System.out.print(mess); 
+            try {
+                number =  Float.parseFloat(scanner.nextLine().trim());
                 if (number >= min && number <= max) {  
                     return number;
                 } else {  

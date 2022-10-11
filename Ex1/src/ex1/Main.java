@@ -4,14 +4,7 @@
  */
 package ex1;
 
-import java.util.Scanner;
-
-/**
- *
- * @author admin
- */
 public class Main {
-private static Scanner scanner = new Scanner(System.in);
     
     
     public static void main(String[] args) {
@@ -22,16 +15,16 @@ private static Scanner scanner = new Scanner(System.in);
                 + "2. kiểm tra đối xứng \n"
                 + "3. tính ước\n"
                 + "4. exit");
-        int choice = Validation.inputInt("Please choice one option:", 1, 4);
+        int choice = Validation.inputInt("please enter choice: ", 1, 4);
             switch (choice) {
                 case 1:
                     controller.giaiptbac2();
                     break;
                 case 2:
-                    controller.kiemtradoixung();
+                    controller.kiemtrachuoidoixung();
                     break;
                 case 3:
-                    controller.tinhuoc();
+                    controller.timuoc();
                     break;
                 case 4:
                     return;

@@ -1,10 +1,5 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
-package ex1;
 
-import java.util.Scanner;
+
 import java.util.Stack;
 
 /**
@@ -13,26 +8,33 @@ import java.util.Stack;
  */
 public class Controller {
 
-    private static Scanner scanner = new Scanner(System.in);
+   
 
     public void giaiptbac2() {
-        int a = Validation.inputInt("nhập hệ số bậc 2, a = ", Integer.MIN_VALUE,Integer.MAX_VALUE);
-        int b = Validation.inputInt("nhập hệ số bậc 2, b = ", Integer.MIN_VALUE,Integer.MAX_VALUE);
-        int c = Validation.inputInt("nhập hệ số bậc 2, c = ", Integer.MIN_VALUE,Integer.MAX_VALUE);
-
+        float a = Validation.inputFloat("nhập hệ số bậc 2, a = ", Float.NEGATIVE_INFINITY, Float.POSITIVE_INFINITY);
+        float b = Validation.inputFloat("nhập hệ số bậc 2, b = ", Float.NEGATIVE_INFINITY, Float.POSITIVE_INFINITY);
+        float c = Validation.inputFloat("nhập hệ số bậc 2, c = ", Float.NEGATIVE_INFINITY, Float.POSITIVE_INFINITY);
+        kiemtradieukien(a, b, c);
+        
+    }
+    public void kiemtradieukien(float a, float b, float c){
         if (a == 0) {
             if (b == 0) {
                 System.out.println("Phương trình vô nghiệm!");
             } else {
-                System.out.println("Phương trình có một nghiệm: "+ "x = " + (-c / b));                        
+                System.out.println("Phương trình có một nghiệm: " + "x = " + (-c / b));
             }
             return;
-        }
-        // tính delta
+        }else{
+            tinhnghiem(a, b, c);
+    }
+    }
+    public void tinhnghiem(float a, float b, float c) {
+
         float delta = b * b - 4 * a * c;
         float x1;
         float x2;
-        // tính nghiệm
+        
         if (delta > 0) {
             x1 = (float) ((-b + Math.sqrt(delta)) / (2 * a));
             x2 = (float) ((-b - Math.sqrt(delta)) / (2 * a));
@@ -44,13 +46,23 @@ public class Controller {
             System.out.println("Phương trình vô nghiệm!");
         }
     }
+    
 
-    public void kiemtradoixung() {
+    public void kiemtrachuoidoixung() {
         System.out.print("Nhập chuỗi:");
-        String inputString = Validation.inputString();     
+        kiemtradodaichuoi();
+    }
+    public void kiemtradodaichuoi(){
+        String inputString = Validation.inputString();
         if (inputString.length() % 2 != 0) {
             System.out.println("Chuoi khong doi xung");
-        }else{
+        } else {
+            kiemtradoixung(inputString);
+        }
+    }
+
+    public void kiemtradoixung(String inputString) {
+
         Stack stack = new Stack();
         for (int i = 0; i < inputString.length(); i++) {
             stack.push(inputString.charAt(i));
@@ -66,16 +78,21 @@ public class Controller {
             System.out.println("không phải là chuỗi đối xứng.");
         }
     }
-    }
 
-    public void tinhuoc() {
+    public void timuoc() {
         int number = Validation.inputInt("Enter number:  ", 1, Integer.MAX_VALUE);
         System.out.print("Ư(" + number + "): ");
+        tinhuoc(number);
+        System.out.println("");
+
+    }
+
+    public void tinhuoc(int number) {
         for (int i = 1; i <= number; i++) {
             if (number % i == 0) {
                 System.out.print(i + "\t");
-            }          
-        } 
-        System.out.println("");
+            }
+        }
+
     }
 }

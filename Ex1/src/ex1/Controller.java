@@ -1,5 +1,11 @@
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ */
+package ex1;
 
 
+import java.util.HashMap;
 import java.util.Stack;
 
 /**
@@ -60,9 +66,8 @@ public class Controller {
             kiemtradoixung(inputString);
         }
     }
-
-    public void kiemtradoixung(String inputString) {
-
+    
+    public void kiemtradoixung(String inputString) {       
         Stack stack = new Stack();
         for (int i = 0; i < inputString.length(); i++) {
             stack.push(inputString.charAt(i));
@@ -78,7 +83,40 @@ public class Controller {
             System.out.println("không phải là chuỗi đối xứng.");
         }
     }
-
+    public void kiemtrachuoidoixung2(){
+        System.out.print("Nhập chuỗi:");
+         String inputString = Validation.inputString();
+        if (inputString.length() % 2 != 0) {
+            System.out.println("Chuoi khong doi xung");
+        } else {
+           
+        boolean flag = true;
+        if (inputString.length() == 2) {
+            if (inputString.charAt(0) != inputString.charAt(1)) {
+                flag = false;
+            }
+        }
+        String[] charstr = inputString.split("");
+        HashMap<String, Integer> hashmap = new HashMap<>();
+        for (int i = 0; i < charstr.length; i++) {
+            if (hashmap.containsKey(charstr[i])) {
+                hashmap.put(charstr[i], hashmap.get(charstr[i]) + 1);
+            } else {
+                hashmap.put(charstr[i], 1);
+            }
+        }
+        for (String object : hashmap.keySet()) {
+            if (hashmap.get(object) % 2 != 0) {
+                flag = false;
+            }
+        }
+        if (flag == true) {
+            System.out.println("có thể chuyển thành chuỗi đối xứng");
+        } else {
+            System.out.println("Khong thể chuyển thành la 1 chuỗi đối xứng");
+        }
+    }
+    }
     public void timuoc() {
         int number = Validation.inputInt("Enter number:  ", 1, Integer.MAX_VALUE);
         System.out.print("Ư(" + number + "): ");
@@ -95,4 +133,8 @@ public class Controller {
         }
 
     }
+
+    
+
+    
 }

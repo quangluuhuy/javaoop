@@ -5,17 +5,17 @@
 package ex1;
 
 public class Main {
-    
-    
+
     public static void main(String[] args) {
         Controller controller = new Controller();
-         while (true) {
-               System.out.println("========= Ex1 Program =========\n"
-                + "1. giải phương trình bậc 2\n"
-                + "2. kiểm tra đối xứng \n"
-                + "3. tính ước\n"
-                + "4. exit");
-        int choice = Validation.inputInt("please enter choice: ", 1, 4);
+        while (true) {
+            System.out.println("========= Ex1 Program =========\n"
+                    + "1. giải phương trình bậc 2\n"
+                    + "2. kiểm tra đối xứng \n"
+                    + "3. tính ước\n"
+                    + "4. kiem tra chuoi co the chuyen thanh doi xung kh \n"
+                    + "5.thoat");
+            int choice = Validation.inputInt("please enter choice: ", 1, 5);
             switch (choice) {
                 case 1:
                     controller.giaiptbac2();
@@ -27,10 +27,13 @@ public class Main {
                     controller.timuoc();
                     break;
                 case 4:
+                    controller.kiemtrachuoidoixung2();
+                    break;
+                case 5:
                     return;
 
             }
         }
     }
-    
+
 }

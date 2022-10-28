@@ -35,27 +35,27 @@ public class Manager {
             case 1:
                 String binary = Validate.checkInputBinary();
                 if(checkConvert("binary", "decimal", "hexadecimal") == 1){
-                    System.out.println("Binary to Decimal: " + Convert.BinaryToDecimal(binary));
+                    System.out.println("Binary to Decimal: " + Convert.binaryToDecimal(binary));
                 }else{
-                    System.out.println("Binary to Hexadecimal: " + Convert.BinaryToHexa(binary));
+                    System.out.println("Binary to Hexadecimal: " + Convert.binaryToHexa(binary));
                 }
                 break;
             
             case 2:
                 long decimal = Validate.checkInputDecimal();
                 if(checkConvert("decimal", "binary", "hexadecimal") == 1){
-                    System.out.println("Decimal to Binary: "+ Convert.DecimalToBinary(decimal));
+                    System.out.println("Decimal to Binary: "+ Convert.decimalToBinary(decimal));
                 }else{
-                    System.out.println("Decimal to Hexadecimal: "+ Convert.DecimalToHexa(decimal));
+                    System.out.println("Decimal to Hexadecimal: "+ Convert.decimalToHexa(decimal));
                 }
                 break;
                 
             case 3:
                 String hexa = Validate.checkInputHexaDecimal();
                 if(checkConvert("hexa", "binary", "decimal") == 1){
-                    System.out.println("Hexadecimal to Binary: " + Convert.HexaToBinary(hexa));
+                    System.out.println("Hexadecimal to Binary: " + Convert.hexaToBinary(hexa));
                 }else{
-                    System.out.println("Hexadecimal to Decimal: " + Convert.HexaToDecimal(hexa));
+                    System.out.println("Hexadecimal to Decimal: " + Convert.hexaToDecimal(hexa));
                 }
                 break;
         }

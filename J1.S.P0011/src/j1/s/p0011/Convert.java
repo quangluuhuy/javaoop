@@ -33,7 +33,7 @@ public class Convert {
     }
 
     //Binary
-    public static int BinaryToDecimal(String binary) {
+    public static int binaryToDecimal(String binary) {
         int decimal = 0;
         int count = 0;
         for (int i = (binary.length() - 1); i >= 0; i--) {
@@ -45,7 +45,7 @@ public class Convert {
         return decimal;
     }
 
-    public static String BinaryToHexa(String binary) {
+    public static String binaryToHexa(String binary) {
         ArrayList<String> list = new ArrayList<>();
         int position = binary.length();
         while (position > 0) {
@@ -79,7 +79,7 @@ public class Convert {
     }
 
     //Decimal
-    public static String DecimalToBinary(long decimal) {
+    public static String decimalToBinary(long decimal) {
         String binary = "";
         while (decimal > 0) {
             binary = Long.toString(decimal % 2) + binary;
@@ -88,22 +88,22 @@ public class Convert {
         return binary;
     }
 
-    public static String DecimalToHexa(long decimal) {
-        String hexa = DecimalToBinary(decimal);
-        return BinaryToHexa(hexa);
+    public static String decimalToHexa(long decimal) {
+        String hexa = decimalToBinary(decimal); //10->>2->>16
+        return binaryToHexa(hexa);
 
     }
 
     //Hexa
-    public static int HexaToDecimal(String hexadecimal) {
-        String binary = HexaToBinary(hexadecimal);
-        return BinaryToDecimal(binary);
+    public static int hexaToDecimal(String hexadecimal) {
+        String binary = hexaToBinary(hexadecimal); //16->2->10
+        return binaryToDecimal(binary);
     }
 
-    public static String HexaToBinary(String hexa) {
+    public static String hexaToBinary(String hexa) {
         String binary = "";
         for (int i = 0; i < hexa.length(); i++) {
-            binary += hexaToBinary.get(hexa.charAt(i));
+            binary += hexaToBinary.get(hexa.charAt(i));// sử dụng bảng hashmap
         }
         return binary;
     }

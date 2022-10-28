@@ -24,6 +24,19 @@ public class Validate {
             }
         }
     }
+    //className theo form
+    // vd: FU1234, SE1639 ,.....
+//     public static String checkInputString2() {
+//         //loop until user input true value      
+//         while (true) {
+//             String result = sc.nextLine().trim();
+//             if (!result.matches("[a-zA-Z]{2}[0-9]{4}")) {
+//                 System.err.print("Enter again: ");
+//             } else {
+//                 return result;
+//             }
+//         }
+//     }
 
     public static int checkInputMark(String nameSubject) {
         while (true) {

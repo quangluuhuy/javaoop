@@ -15,7 +15,7 @@ public class Regex {
     
     public static void main(String[] args) {
         
-        String input = checkInputString();
+        String str = checkInputString();
     }
     public static String checkInputString() {
             

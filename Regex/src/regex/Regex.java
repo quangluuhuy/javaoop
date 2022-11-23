@@ -22,11 +22,11 @@ public class Regex {
         
              System.out.println("nhập chuỗi: ");
              String result = scanner.nextLine().trim();
-             if (!result.matches("^[a-zA-Z0-9]{0,100}$")) {
-                 System.out.println("chuỗi  có kí tự đặc biệt");
+             if (!result.matches("^[a-zA-Z]{0,100}$")) {
+                 System.out.println("chuỗi  có sốt");
                  
              } else {
-                 System.out.println("chuỗi không có kí tự đặc biệt");
+                 System.out.println("chuỗi không có số");
                  return result;
              }
         return null;

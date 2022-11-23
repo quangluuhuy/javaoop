@@ -15,21 +15,22 @@ public class Regex {
     
     public static void main(String[] args) {
         
-        String str = checkInputString();
+        String input = checkInputString();
     }
     public static String checkInputString() {
             
-         while (true) {
+        
              System.out.println("nhập chuỗi: ");
              String result = scanner.nextLine().trim();
              if (!result.matches("^[a-zA-Z0-9]{0,100}$")) {
                  System.out.println("chuỗi  có kí tự đặc biệt");
-                 System.err.print("Enter again: ");
+                 
              } else {
                  System.out.println("chuỗi không có kí tự đặc biệt");
                  return result;
              }
-         }
-     }
+        return null;
+         
+    }
     
 }

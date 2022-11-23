@@ -17,9 +17,7 @@ public class Regex {
         
         String str = checkInputString();
     }
-    public static String checkInputString() {
-            
-        
+    public static String checkInputString() {      
              System.out.println("nhập chuỗi: ");
              String result = scanner.nextLine().trim();
              if (!result.matches("^[a-zA-Z]{0,100}$")) {

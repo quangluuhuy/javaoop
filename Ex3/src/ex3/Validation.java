@@ -13,10 +13,7 @@ import java.util.Scanner;
  */
 public class Validation {
 
-    static boolean checkChangeInfo(ArrayList<Student> id, String name, String stduentId, int age, String classs, String school) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
-
+    
     
     private final Scanner sc = new Scanner(System.in);
 

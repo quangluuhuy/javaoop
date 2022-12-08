@@ -98,8 +98,8 @@ public class Managing {
         } else {
             System.out.printf("%-5s%-15s%-15s%-15s%-10s%-10s\n", "ID", "Name", "StudentID", "Age",
                     "Class","School");
-            for (Student eac : students) {
-                eac.display();
+            for (Student student : students) {
+                student.display();
             }
         }
     }

@@ -40,7 +40,7 @@ public class Student {
         System.out.println(elapse_mili);
     }
     private Student createRandomStudent() {
-        return new Student(null,20,null);
+        return new Student(null,10,null);
     }
 
     public static void main(String[] args) {

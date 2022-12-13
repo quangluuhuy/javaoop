@@ -25,15 +25,17 @@ public class Main {
                     managing.searchStudentByName();
                     break;
                 case 3:
-                    managing.getId(3);
-                    break;
+                    managing.displayRecentlyStudent();
                 case 4:
                     managing.getId(4);
                     break;
                 case 5:
-                    managing.displayAllStudent(students);
+                    managing.getId(5);
                     break;
                 case 6:
+                    managing.displayAllStudent(students);
+                    break;
+                case 7:
                     return;
 
                 default:

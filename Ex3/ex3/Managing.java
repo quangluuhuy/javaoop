@@ -101,7 +101,7 @@ public class Managing {
                 String studentIdUpdate = validation.checkInputString("Enter studentId update: ");
                 student.setStudentId(studentIdUpdate);
                 int dobUpdate = validation.checkInt("Enter dob update: ", 1, Integer.MAX_VALUE);
-                student.setAge(dobUpdate);
+                student.setDob(dobUpdate);
                 String classUpdate = validation.checkInputString("Enter class update: ");
                 student.setStudentClass(classUpdate);
                 String schoolUpdate = validation.checkInputString("Enter shcool update: ");

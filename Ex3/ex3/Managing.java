@@ -5,9 +5,9 @@
 package ex3;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 
 import java.util.List;
-
 
 /**
  *
@@ -16,26 +16,27 @@ import java.util.List;
 public class Managing {
 
     public Validation validation = new Validation();
-    ArrayList<Student> students;
+    List<Student> students;
 
-    public Managing(ArrayList<Student> students) {
+    public Managing(List<Student> students) {
         this.students = students;
     }
 
-    public   int showMenuAndChoice() {
+    public int showMenuAndChoice() {
 
         System.out.println("===================Student Management==================");
-        System.out.println("1. Add student\n"                
+        System.out.println("1. Add student\n"
                 + "2. Search  student\n"
-                + "3. Update student\n"
-                + "4. Delete student\n"
-                + "5. Display student\n"
-                + "6. Exit"
+                + "3.Display the information of student you've just input\n"
+                + "4. Update student\n"
+                + "5. Delete student\n"
+                + "6. Display student\n"
+                + "7. Exit"
         );
-        int choice = validation.checkInt("Enter your choice: ", 1, 5);
+        int choice = validation.checkInt("Enter your choice: ", 1, 7);
         return choice;
     }
-   
+
     public void addStudent() {
         System.out.println("====================Add Task=========================");
         int id;
@@ -46,15 +47,13 @@ public class Managing {
         }
         String name = validation.checkInputString("Enter Studentname: ");
         String stduentId = validation.checkInputString("Enter StudentId: ");
-        int age = validation.checkInt("Enter age: ", 1, Integer.MAX_VALUE);
+        int dateOfBirth = validation.checkInt("Enter dateOfBirth: ", 1, Integer.MAX_VALUE);
         String className = validation.checkInputString("Enter class: ");
         String schoolName = validation.checkInputString("Enter school: ");
-
-        students.add(new Student(id, name, stduentId,age,className,schoolName));
+ 
+        students.add(new Student(id, name, stduentId, dateOfBirth, className, schoolName));
         System.out.println("Add Successful!");
     }
-
-    
 
     public void searchStudentByName() {
         String searchName = validation.checkInputString("Enter the name you want to search for: ");
@@ -72,55 +71,73 @@ public class Managing {
         }
         return result;
     }
-    public void getId(int choice){
+
+    public void getId(int choice) {
         if (students.isEmpty()) {
             System.err.println("List Task Empty! You must add task first");
         } else {
-            if(choice == 3){
+            if (choice == 4) {
                 updateStudentById();
-            }else if(choice == 4){
+            } else if (choice == 5) {
                 deleteStudentById();
             }
-            
-    }}
-   public void updateStudentById() {
-        
-            System.out.println("=============Update student===========");
-            int id = validation.checkInt("Enter the Id you want to update for:  ", 1, Integer.MAX_VALUE);
-            if (validation.isIdExists(students, id) == null) {
-                System.err.println("ID Not found! ");
-            } else {
-                for (Student student : students){
-              
-                int idUpdate = validation.checkInt("enter id update: ", 1, Integer.MAX_VALUE);
-                student.setId(idUpdate);                
+
+        }
+    }
+
+    public void updateStudentById() {
+
+        System.out.println("=============Update student===========");
+        int id = validation.checkInt("Enter the Id you want to update for:  ", 1, Integer.MAX_VALUE);
+        if (validation.isIdExists((ArrayList<Student>) students, id) == null) {
+            System.err.println("ID Not found! ");
+        } else {
+            for (Student student : students) {
+
+                
+               
                 String nameUpdate = validation.checkInputString("Enter name update: ");
                 student.setStudentName(nameUpdate);
                 String studentIdUpdate = validation.checkInputString("Enter studentId update: ");
                 student.setStudentId(studentIdUpdate);
-                int ageUpdate = validation.checkInt("Enter age update: ", 1, 100);
-                student.setAge(ageUpdate);
+                int dobUpdate = validation.checkInt("Enter dob update: ", 1, Integer.MAX_VALUE);
+                student.setAge(dobUpdate);
                 String classUpdate = validation.checkInputString("Enter class update: ");
                 student.setStudentClass(classUpdate);
                 String schoolUpdate = validation.checkInputString("Enter shcool update: ");
                 student.setStudentSchool(schoolUpdate);
+
             }
-            }
+        
     }
-   
-    public void deleteStudentById() {
-       
-            System.out.println("=============Delete student===========");
-            int id = validation.checkInt("Enter the Id you want to delete for:  ", 1, Integer.MAX_VALUE);
-            if (validation.isIdExists(students, id) == null) {
-                System.err.println("ID Not found! ");
-            } else {
-                Student student = validation.isIdExists(students, id);
-                students.remove(student);
-                System.out.println("Remove success");
-            }
+    }
+    public void displayRecentlyStudent () {
+        Student result = getRecentlyEnteredInformation();
+        if (result != null) {
+            displayAllStudent(Arrays.asList(result));
         }
-    
+    }
+
+    private Student getRecentlyEnteredInformation() {
+        if (students.isEmpty()) {
+            return null;
+        } else {
+            return students.get(students.size() - 1);
+        }
+
+    }
+    public void deleteStudentById() {
+
+        System.out.println("=============Delete student===========");
+        int id = validation.checkInt("Enter the Id you want to delete for:  ", 1, Integer.MAX_VALUE);
+        if (validation.isIdExists((ArrayList<Student>) students, id) == null) {
+            System.err.println("ID Not found! ");
+        } else {
+            Student student = validation.isIdExists((ArrayList<Student>) students, id);
+            students.remove(student);
+            System.out.println("Remove success");
+        }
+    }
 
     public void displayAllStudent(List<Student> students) {
         if (students == null || students.isEmpty()) {
@@ -129,13 +146,11 @@ public class Managing {
 
         } else {
             System.out.printf("%-5s%-15s%-15s%-15s%-10s%-10s\n", "ID", "Name", "StudentID", "Age",
-                    "Class","School");
+                    "Class", "School");
             for (Student student : students) {
                 student.display();
             }
         }
     }
-
-   
 
 }

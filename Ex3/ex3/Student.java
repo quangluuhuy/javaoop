@@ -12,15 +12,15 @@ public class Student {
     private int id;
     private  String studentName;
     private String studentId;
-    private int age;
+    private int dob;
     private String studentClass;
     private String studentSchool;
 
-    public Student(int id, String studentName, String studentId, int age, String studentClass, String studentSchool) {
+    public Student(int id, String studentName, String studentId, int dob, String studentClass, String studentSchool) {
         this.id = id;
         this.studentName = studentName;
         this.studentId = studentId;
-        this.age = age;
+        this.dob = dob;
         this.studentClass = studentClass;
         this.studentSchool = studentSchool;
     }
@@ -49,12 +49,12 @@ public class Student {
         this.studentId = studentId;
     }
 
-    public int getAge() {
-        return age;
+    public int getDob() {
+        return dob;
     }
 
-    public void setAge(int age) {
-        this.age = age;
+    public void setDob(int dob) {
+        this.dob = dob;
     }
 
     public String getStudentClass() {
@@ -74,8 +74,10 @@ public class Student {
     }
 
    
+
+   
     public void display() {
-        System.out.printf("%-5s%-15s%-15s%-15s%-10s%-10s\n",getId(), getStudentName(),getStudentId (),getAge(),
+        System.out.printf("%-5s%-15s%-15s%-15s%-10s%-10s\n",getId(), getStudentName(),getStudentId (),getDob(),
          getStudentClass(),getStudentSchool() );
        
         

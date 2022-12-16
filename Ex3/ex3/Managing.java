@@ -47,7 +47,7 @@ public class Managing {
         }
         String name = validation.checkInputString("Enter Studentname: ");
         String stduentId = validation.checkInputString("Enter StudentId: ");
-        int dateOfBirth = validation.checkInt("Enter dateOfBirth: ", 1, Integer.MAX_VALUE);
+        String dateOfBirth = validation.checkDate("Emter dateOfBirth: ");
         String className = validation.checkInputString("Enter class: ");
         String schoolName = validation.checkInputString("Enter school: ");
  
@@ -100,7 +100,7 @@ public class Managing {
                 student.setStudentName(nameUpdate);
                 String studentIdUpdate = validation.checkInputString("Enter studentId update: ");
                 student.setStudentId(studentIdUpdate);
-                int dobUpdate = validation.checkInt("Enter dob update: ", 1, Integer.MAX_VALUE);
+                String dobUpdate = validation.checkDate("Enter dob update: ");
                 student.setDob(dobUpdate);
                 String classUpdate = validation.checkInputString("Enter class update: ");
                 student.setStudentClass(classUpdate);
